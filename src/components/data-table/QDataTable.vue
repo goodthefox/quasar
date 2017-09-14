@@ -210,7 +210,13 @@ export default {
         this.sort(rows)
       }
 
-      this.pagination.entries = rows.length
+      if (this.config.pagination.totle) {
+        this.pagination.entries = this.config.pagination.totle
+      }
+      else {
+        this.pagination.entries = rows.length
+      }
+
       if (this.pagination.rowsPerPage > 0) {
         rows = this.paginate(rows)
       }
